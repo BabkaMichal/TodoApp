@@ -5,9 +5,10 @@ import androidx.room.PrimaryKey
 
 // Defining the types of items
 enum class ItemType {
-    HABIT, //doesn't disappear
+    ROUTINE, //doesn't disappear
     TASK, //has deadline
-    LIST_ITEM //list
+    LIST_ITEM, //list
+    DAILY //disappears after 24h
 }
 
 //defining the difficulty
@@ -27,5 +28,6 @@ data class TodoItem(
     val type: ItemType,
     val deadline: Long? = null, //time in milliseconds, can be null
     val difficulty: Difficulty = Difficulty.EASY,
-    val isCompleted: Boolean = false
+    val isCompleted: Boolean = false,
+    val parentId: Int? = null
 )
